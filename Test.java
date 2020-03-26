@@ -97,7 +97,8 @@ public class Test {
             switch(operation){
                 case 1: //case one is the search function for the tree list
                     System.out.println("What is the name of the tree?");
-                    String key = s.next(); //name of tree input
+                    String key = "0";
+                    key = s.nextLine(); //name of tree input
                     int index = search(listTree, key); //finding the index of the key
                     if (index == -1){
                         System.out.println("Item not found!"); //message if not contained within the list
@@ -114,7 +115,7 @@ public class Test {
                         System.out.println("Item not found!"); //message if not contained within the list
                     }
                     else{
-                        System.out.println(listTree.get(index)); //data in that index
+                        System.out.println(listStudents.get(index)); //data in that index
                     }
                     break;
             }
@@ -131,14 +132,12 @@ public class Test {
      */
 
     public static <E1, E2> int search(ArrayList<Pair<E1,E2>> list, E1 key){
-        int index;
-        if(list.contains(key)){
-            index = list.indexOf(key);
-            return index;
+        for(int i = 0; i < list.size(); i++){
+            if (list.get(i).getObj().equals(key)){
+                return i;
+            }
         }
-        else{
-            return -1;
-        }
+        return -1;
     }
 
     /**
